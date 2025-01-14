@@ -32,7 +32,8 @@ model Bus {
   id          Int      @id @default(autoincrement())
   plateNumber String   @unique
   capacity    Int
-  model       String
+  crew        String
+  status      String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -43,7 +44,6 @@ model Route {
   id          Int      @id @default(autoincrement())
   origin      String
   destination String
-  distanceKm  Float
   price       Float
   busId       Int
   createdAt   DateTime @default(now())
