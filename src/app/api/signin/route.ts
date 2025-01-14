@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       return new NextResponse("user not found", { status: 404 });
     }
     //cek if user role is ADMIN
-    if (user.roles !== "ADMIN") {
+    if (user.role !== "ADMIN") {
       return new NextResponse("User not admin", { status: 401 });
     }
 

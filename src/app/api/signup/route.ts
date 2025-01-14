@@ -9,14 +9,13 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     userSignUpSchema.parse(body);
-    const { name, email, password, phoneNumber, roles } = body;
+    const { name, email, password, role } = body;
     const user = await prisma.user.create({
       data: {
         name,
         email,
         password: hashSync(password, 10),
-        phoneNumber,
-        roles,
+        role,
       },
     });
 
